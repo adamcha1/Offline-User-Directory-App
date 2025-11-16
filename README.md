@@ -53,9 +53,9 @@ The app follows an offline-first architecture by storing users fetched from the 
 
 ## Screenshots
 
-![Screenshot 1](<img width="361" height="805" alt="Screenshot 1" src="https://github.com/user-attachments/assets/f97ab7fa-2665-470e-a420-479a9f13dc4a" />)
+(<img width="361" height="805" alt="Screenshot 1" src="https://github.com/user-attachments/assets/f97ab7fa-2665-470e-a420-479a9f13dc4a" />)
 ![Screenshot 2](<img width="360" height="804" alt="Screenshot 2" src="https://github.com/user-attachments/assets/56a2c068-5dc7-414d-be51-27245e4c0c90" />)
-![Screenshot 1](<img width="358" height="806" alt="Screenshot 3" src="https://github.com/user-attachments/assets/e41a0f70-2c0d-4807-9355-0b01bc9f4b31" />)
+![Screenshot 3](<img width="358" height="806" alt="Screenshot 3" src="https://github.com/user-attachments/assets/e41a0f70-2c0d-4807-9355-0b01bc9f4b31" />)
 
 
 ---
