@@ -4,44 +4,33 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.offlineuserdirectoryapp.data.local.UserDatabase
+import com.example.offlineuserdirectoryapp.data.repository.UserRepository
+import com.example.offlineuserdirectoryapp.ui.screens.UserListScreen
 import com.example.offlineuserdirectoryapp.ui.theme.OfflineUserDirectoryAppTheme
+import com.example.offlineuserdirectoryapp.viewmodel.UserViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContent {
-            OfflineUserDirectoryAppTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+
+        val dao = UserDatabase.getDatabase(applicationContext).userDao()
+        val repository = UserRepository(dao)
+        val factory = object : ViewModelProvider.Factory {
+            override fun <T : ViewModel> create(modelClass: Class<T>): T {
+                @Suppress("UNCHECKED_CAST")
+                return UserViewModel(repository) as T
             }
         }
-    }
-}
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    OfflineUserDirectoryAppTheme {
-        Greeting("Android")
+        setContent {
+            OfflineUserDirectoryAppTheme {
+                UserListScreen(viewModel(factory = factory))
+            }
+        }
     }
 }
