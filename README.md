@@ -62,7 +62,7 @@ The app follows an offline-first architecture by storing users fetched from the 
 
 ## Setup Instructions
 
-1. Clone this repository: "git clone https://github.com/your-username/offlineuserdirectoryapp.git"
+1. Clone this repository: "git clone https://github.com/adamcha1/Offline-User-Directory-App.git"
 
 2. Open the project in Android Studio Otter.
 
